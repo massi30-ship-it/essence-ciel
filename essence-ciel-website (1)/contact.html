@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact &amp; Inquiries — Essence-Ciel PR &amp; Events</title>
+<meta name="description" content="Tell us about your event. Send an inquiry, book a consultation, or reach Essence-Ciel PR &amp; Events across Lebanon, the UAE and Egypt.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236E7D63'/%3E%3Cg fill='%23F4EFE5'%3E%3Cpolygon points='50,20 59,56 41,56'/%3E%3Cpolygon points='34,28 47,57 28,57'/%3E%3Cpolygon points='66,28 72,57 53,57'/%3E%3Cpolygon points='17,58 83,58 73,71 50,79 27,71'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="mk"><svg viewBox="0 0 100 100" fill="currentColor"><polygon points="50,20 59,56 41,56"/><polygon points="34,28 47,57 28,57" opacity=".8"/><polygon points="66,28 72,57 53,57" opacity=".8"/><polygon points="21,38 35,58 17,58" opacity=".62"/><polygon points="79,38 83,58 65,58" opacity=".62"/><polygon points="17,58 83,58 73,71 50,79 27,71"/></svg></span><span class="wm"><b>Essence-Ciel</b><small>PR &amp; Events</small></span></a>
+  <nav class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="testimonials.html">Testimonials</a><a href="contact.html">Contact</a></nav>
+  <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<div class="mmenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="testimonials.html">Testimonials</a><a href="contact.html">Contact</a><div class="mfoot">Lebanon · United Arab Emirates · Egypt<br>@essence_ciel_events</div></div>
+
+<!-- split -->
+<section class="contact-split" style="margin-top:0">
+  <div class="contact-left" style="display:flex;flex-direction:column;justify-content:center;padding-top:clamp(120px,16vh,160px)">
+    <p class="kicker" style="color:var(--gold)">Contact &amp; Inquiries</p>
+    <h2 class="d-md" style="margin:16px 0 10px">Let's begin.</h2>
+    <p class="serif italic" style="color:var(--gold);font-size:1.3rem">At Essence-Ciel we make it happen… that's l'essenciel!</p>
+    <div style="margin-top:34px">
+      <div class="ci-row"><span class="l">Instagram</span><a class="v serif" href="https://instagram.com/essence_ciel_events" target="_blank" rel="noopener">@essence_ciel_events</a></div>
+      <div class="ci-row"><span class="l">Facebook</span><span class="v serif">Coming soon</span></div>
+      <div class="ci-row"><span class="l">Phone</span><a class="v serif" href="tel:+9613902942">+961 3 902 942</a></div>
+      <div class="ci-row"><span class="l">Phone</span><a class="v serif" href="tel:+9613849306">+961 3 849 306</a></div>
+      <div class="ci-row"><span class="l">Email</span><span class="v serif">hello@essence-ciel.com <span style="opacity:.55;font-size:1rem">(TBC)</span></span></div>
+      <div class="ci-row" style="border-bottom:1px solid rgba(237,233,221,.16)"><span class="l">Where</span><span class="v serif">Lebanon · United Arab Emirates · Egypt</span></div>
+    </div>
+  </div>
+
+  <div class="contact-right" style="display:flex;flex-direction:column;justify-content:center;padding-top:clamp(120px,16vh,160px)">
+    <p class="kicker reveal">Inquiry Form</p>
+    <h2 class="d-sm reveal d1" style="margin:14px 0 30px">Tell us about your event</h2>
+
+    <form id="inquiryForm" class="reveal d1" novalidate>
+      <div class="field"><label for="name">Full name</label><input id="name" name="name" type="text" required></div>
+      <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" required></div>
+      <div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel"></div>
+      <div class="field"><label for="type">Type of event</label>
+        <select id="type" name="type">
+          <option>Wedding Celebration</option><option>Private Function</option><option>Corporate Event &amp; PR</option>
+          <option>Conference / Public Event</option><option>Festival</option><option>Concert / Musical</option>
+          <option>Sports Event</option><option>CSR Activation</option><option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label for="date">Preferred date (optional)</label><input id="date" name="date" type="text" placeholder="e.g. June 2026"></div>
+      <div class="field"><label for="message">Tell us your vision</label><textarea id="message" name="message" rows="3" required></textarea></div>
+      <button type="submit" class="btn btn-solid">Send Inquiry</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      Thank you — your inquiry has reached us.<br>The Essence-Ciel team will be in touch very shortly.
+    </div>
+  </div>
+</section>
+
+<!-- booking / calendly -->
+<section class="section soft center" id="book">
+  <div class="narrow">
+    <p class="kicker reveal">Book a Consultation</p>
+    <h2 class="d-md reveal d1" style="margin:14px 0 24px">Prefer to talk it through?</h2>
+    <div class="calendly-ph reveal d2">
+      <!-- Calendly inline embed placeholder.
+           To go live: create a Calendly event type, then replace the data-url below
+           with your link (e.g. https://calendly.com/essence-ciel/consultation) and
+           uncomment the Calendly script + widget at the bottom of this section. -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR-ESSENCE-CIEL-LINK/consultation" style="min-width:320px;height:120px;display:grid;place-items:center">
+        <div>
+          <p class="serif italic" style="font-size:1.35rem;color:var(--sage-2)">Consultation calendar</p>
+          <p class="muted" style="font-size:13px;margin-top:8px">Calendly embed — connect your booking link to activate live scheduling.</p>
+          <a href="mailto:hello@essence-ciel.com?subject=Consultation%20Request" class="btn btn-outline" style="margin-top:20px">Request a time</a>
+        </div>
+      </div>
+      <!-- <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+           <script src="https://assets.calendly.com/assets/external/widget.js" async></script> -->
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="foot-top">
+      <div><h3 class="serif">Essence-Ciel</h3><p class="tag serif">At Essence-Ciel we make it happen… that's l'essenciel!</p></div>
+      <div class="foot-col"><h5>Explore</h5><a href="about.html">About / Our Story</a><a href="services.html">Services &amp; Packages</a><a href="gallery.html">Gallery</a><a href="testimonials.html">Testimonials</a><a href="contact.html">Contact</a></div>
+      <div class="foot-col"><h5>Connect</h5><a href="https://instagram.com/essence_ciel_events" target="_blank" rel="noopener">Instagram · @essence_ciel_events</a><a href="#" rel="noopener">Facebook · coming soon</a><a href="tel:+9613902942">+961 3 902 942</a><a href="tel:+9613849306">+961 3 849 306</a><p>hello@essence-ciel.com <span style="opacity:.6">(TBC)</span></p></div>
+    </div>
+    <div class="foot-bottom"><span>© <span data-year></span> Essence-Ciel PR &amp; Events. All rights reserved.</span><span>Lebanon · United Arab Emirates · Egypt</span></div>
+  </div>
+</footer>
+
+<button class="chat-btn" id="chatBtn" aria-label="Chat with us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg></button>
+<div class="chat-panel" id="chatPanel"><div class="ch-h"><b class="serif">Chat with us</b><p>We usually reply within the hour.</p></div><div class="ch-b"><p>How can Essence-Ciel help with your event?</p><a href="https://instagram.com/essence_ciel_events" target="_blank" rel="noopener">Message us on Instagram →</a><a href="tel:+9613902942">Call +961 3 902 942 →</a><a href="mailto:hello@essence-ciel.com">Email us →</a></div></div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
