@@ -1,78 +1,82 @@
-/* Essence-Ciel — shared interactions: sticky nav, mobile menu, scroll reveal,
-   active link, contact form success, and the live-chat widget. */
+/* ================================================================
+   ESSENCE-CIEL — main.js
+   Nav toggle, scroll header, active link, gallery filter,
+   contact form validation + success, current year.
+   Vanilla ES6. No libraries. No scroll/cursor/counter animations.
+   ================================================================ */
 (function () {
   'use strict';
 
   /* current year */
-  document.querySelectorAll('[data-year]').forEach(function (e) { e.textContent = new Date().getFullYear(); });
+  document.querySelectorAll('[data-year]').forEach(function (e) {
+    e.textContent = new Date().getFullYear();
+  });
 
-  /* sticky nav background on scroll */
-  var nav = document.querySelector('.nav');
-  function onScroll() { if (nav) nav.classList.toggle('scrolled', window.scrollY > 40); }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  /* 1. mobile nav toggle */
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('siteNav');
+  if (toggle && nav) {
+    function closeNav() {
+      nav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeNav);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) { closeNav(); toggle.focus(); }
+    });
+  }
 
-  /* active nav link by filename */
+  /* 2. header shadow on scroll */
+  var header = document.getElementById('site-header');
+  if (header) {
+    function onScroll() { header.classList.toggle('scrolled', window.scrollY > 20); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* 3. active nav link by filename */
   var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  document.querySelectorAll('.nav-links a, .mmenu a').forEach(function (a) {
+  document.querySelectorAll('.site-nav a').forEach(function (a) {
     var href = (a.getAttribute('href') || '').toLowerCase();
     if (href === page || (page === '' && href === 'index.html')) a.classList.add('active');
   });
 
-  /* mobile menu */
-  var burger = document.querySelector('.burger');
-  var mmenu = document.querySelector('.mmenu');
-  if (burger && mmenu) {
-    burger.addEventListener('click', function () {
-      burger.classList.toggle('on');
-      mmenu.classList.toggle('on');
-      document.body.style.overflow = mmenu.classList.contains('on') ? 'hidden' : '';
-    });
-    mmenu.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        burger.classList.remove('on'); mmenu.classList.remove('on'); document.body.style.overflow = '';
+  /* 4. gallery filter (gallery page only) */
+  var filters = document.querySelectorAll('.gallery-filter');
+  var items = document.querySelectorAll('.gallery-item');
+  if (filters.length && items.length) {
+    filters.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var f = this.dataset.filter;
+        filters.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        this.classList.add('active'); this.setAttribute('aria-selected', 'true');
+        items.forEach(function (it) {
+          if (f === 'all' || it.dataset.category === f) { it.classList.remove('hidden'); }
+          else { it.classList.add('hidden'); }
+        });
       });
     });
   }
 
-  /* scroll reveal */
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-
-  /* contact form -> success message */
+  /* 5. contact form -> success message (static demo; wire to Formspree/Netlify to go live) */
   var form = document.getElementById('inquiryForm');
+  var ok = document.getElementById('formSuccess');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      var ok = document.getElementById('formSuccess');
       form.style.display = 'none';
       if (ok) { ok.classList.add('on'); ok.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
     });
   }
-
-  /* live chat widget (self-contained; swap in Tawk.to/Tidio below) */
-  var chatBtn = document.getElementById('chatBtn');
-  var chatPanel = document.getElementById('chatPanel');
-  if (chatBtn && chatPanel) {
-    chatBtn.addEventListener('click', function () { chatPanel.classList.toggle('on'); });
-  }
 })();
-
-/* ===========================================================================
-   LIVE CHAT — Tawk.to placeholder.
-   To go live: create a free property at https://tawk.to, then uncomment and
-   replace PROPERTY_ID / WIDGET_ID below (and you may remove the widget markup
-   in the pages). Tidio works the same way with its own snippet.
-   ---------------------------------------------------------------------------
-   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-   (function () {
-     var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-     s1.async = true;
-     s1.src = 'https://embed.tawk.to/PROPERTY_ID/WIDGET_ID';
-     s1.charset = 'UTF-8'; s1.setAttribute('crossorigin', '*');
-     s0.parentNode.insertBefore(s1, s0);
-   })();
-   =========================================================================== */
