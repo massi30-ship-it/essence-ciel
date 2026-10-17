@@ -16,7 +16,7 @@
   --heading:#393C42;
   --sage:#93AE76;
   --sage-light:#C8D9B0;
-  --teal:#215D64;
+  --teal:#3C5595;
   --blue-tint:#CEE4E8;
   --border:rgba(57,60,66,.12);
   --border-light:rgba(57,60,66,.06);
@@ -79,7 +79,7 @@ section{padding-top:var(--pad-y);padding-bottom:var(--pad-y);position:relative}
 .has-deco>*:not(.deco-circle){position:relative;z-index:1}
 .deco-circle{position:absolute;border-radius:50%;pointer-events:none;user-select:none;z-index:0;filter:blur(60px)}
 .deco-circle--sage{background:rgba(147,174,118,.18)}
-.deco-circle--teal{background:rgba(33,93,100,.12)}
+.deco-circle--teal{background:rgba(60,85,149,.14)}
 .deco-circle--blue{background:rgba(206,228,232,.55)}
 .deco-circle--xl{width:600px;height:600px}
 .deco-circle--lg{width:400px;height:400px}
